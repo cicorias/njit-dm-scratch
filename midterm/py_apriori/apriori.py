@@ -1,18 +1,28 @@
-from typing import Tuple
+from typing import List, Tuple
 
 class Apriori:
 # following https://en.wikipedia.org/wiki/Apriori_algorithm#Examples
-    def __init__(self, transactions: Tuple):
-        if transactions is None:
-            raise ValueError("Transaction itemset is none")
+    def __init__(self, transactions: List):
+        self.__verify__(transactions)
 
-        if not isinstance(transactions, Tuple):
-            raise ValueError("Transaction itemset is not a Tuple")
-        
         self._itemset_transactions = transactions
 
     def __str__(self):
         return str(tuple(self))
+
+
+    def __verify__(self, transactions):
+        if transactions is None:
+            raise ValueError("Transaction itemset is none")
+
+        if not isinstance(transactions, List):
+            raise ValueError("Transaction itemset is not a List")
+
+        if len(transactions) == 0:
+            raise ValueError("Transaction is empty")
+
+        if len(transactions) > 0 and not isinstance(transactions[0], Tuple):
+            raise ValueError("Transaction lement is not a Tuple")
 
 
     @property
@@ -22,12 +32,8 @@ class Apriori:
 
     @transactions.setter
     def transactions(self, value):
-        if not value:
-            raise ValueError("Cannot set transactions to None")
 
-        if not isinstance(value, Tuple):
-            raise ValueError("Cannot set transactions - must be a Tuple")        
-
+        self.__verify__(value)
         self._itemset_transactions = value
 
 
