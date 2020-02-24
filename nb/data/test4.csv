@@ -1,5 +1,5 @@
-'Milk', 'Onion', 'Nutmeg', 'Kidney Beans', 'Eggs', 'Yogurt'
-'Dill', 'Onion', 'Nutmeg', 'Kidney Beans', 'Eggs', 'Yogurt'
-'Milk', 'Apple', 'Kidney Beans', 'Eggs'
-'Milk', 'Unicorn', 'Corn', 'Kidney Beans', 'Yogurt'
-'Corn', 'Onion', 'Kidney Beans', 'Ice cream', 'Eggs'
+Milk,Onion,Nutmeg,KidneyBeans,Eggs,Yogurt
+Dill,Onion,Nutmeg,KidneyBeans,Eggs,Yogurt
+Milk,Apple,KidneyBeans,Eggs
+Milk,Unicorn,Corn,KidneyBeans,Yogurt
+Corn,Onion,KidneyBeans,Icecream,Eggs
