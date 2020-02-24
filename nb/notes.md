@@ -10,6 +10,18 @@ https://www.digitalvidya.com/blog/apriori-algorithms-in-data-mining/
 
 
 
+Apriori "association" rules
+
+https://www.edureka.co/blog/apriori-algorithm/
+https://www.softwaretestinghelp.com/apriori-algorithm/
+
+
+
+Using 
+
+http://rasbt.github.io/mlxtend/user_guide/frequent_patterns/apriori/
+
+
 ## Apriori algorithm – The Theory
 Three significant components comprise the apriori algorithm. They are as follows.
 - Support

@@ -537,6 +537,27 @@ version = "0.8.4"
 
 [[package]]
 category = "main"
+description = "Machine Learning Library Extensions"
+name = "mlxtend"
+optional = false
+python-versions = "*"
+version = "0.17.1"
+
+[package.dependencies]
+joblib = ">=0.13.2"
+matplotlib = ">=3.0.0"
+numpy = ">=1.16.2"
+pandas = ">=0.24.2"
+scikit-learn = ">=0.20.3"
+scipy = ">=1.2.1"
+setuptools = "*"
+
+[package.extras]
+docs = ["mkdocs"]
+testing = ["pytest"]
+
+[[package]]
+category = "main"
 description = "Converting Jupyter Notebooks"
 name = "nbconvert"
 optional = false
@@ -694,7 +715,7 @@ wcwidth = "*"
 [[package]]
 category = "main"
 description = "Run a subprocess in a pseudo terminal"
-marker = "sys_platform != \"win32\" or os_name != \"nt\" or python_version >= \"3.3\" and sys_platform != \"win32\""
+marker = "python_version >= \"3.3\" and sys_platform != \"win32\" or sys_platform != \"win32\" or os_name != \"nt\" or python_version >= \"3.3\" and sys_platform != \"win32\" and (python_version >= \"3.3\" and sys_platform != \"win32\" or sys_platform != \"win32\")"
 name = "ptyprocess"
 optional = false
 python-versions = "*"
@@ -974,7 +995,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "30d6d7fa650aacbbfee7e26353751be03feaeed6ba7fb8cb16d4424b7d3ec3ad"
+content-hash = "c7cb408938d2621cfb860e6ba905da7bb37c16b510439c2e598cecfcb81e1754"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -1249,6 +1270,10 @@ mccabe = [
 mistune = [
     {file = "mistune-0.8.4-py2.py3-none-any.whl", hash = "sha256:88a1051873018da288eee8538d476dffe1262495144b33ecb586c4ab266bb8d4"},
     {file = "mistune-0.8.4.tar.gz", hash = "sha256:59a3429db53c50b5c6bcc8a07f8848cb00d7dc8bdb431a4ab41920d201d4756e"},
+]
+mlxtend = [
+    {file = "mlxtend-0.17.1-py2.py3-none-any.whl", hash = "sha256:ef9edd9f98a0245fbc57e905ca203c79c6391922ec9b5242639e646cf5bc9c06"},
+    {file = "mlxtend-0.17.1.tar.gz", hash = "sha256:2e60c89d3826bb29abfbb3c512dd9981e4111d133a21f49d6410188e5e2cd06c"},
 ]
 nbconvert = [
     {file = "nbconvert-5.6.1-py2.py3-none-any.whl", hash = "sha256:f0d6ec03875f96df45aa13e21fd9b8450c42d7e1830418cccc008c0df725fcee"},
