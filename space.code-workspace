@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "./midterm"
+		},
+		{
+			"path": "./nb"
+		}
+	],
+	"remoteAuthority": "wsl+WLinux",
+	"settings": {}
+}
