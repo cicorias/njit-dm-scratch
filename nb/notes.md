@@ -59,7 +59,7 @@ It implies that 50% of customers who bought jam bought bread as well.
 According to our example, Lift is the increase in the ratio of the sale of bread when you sell jam. The mathematical formula of Lift is as follows.
 
 ```
-Lift = (Confidence (Jam͢͢ – Bread)) / (Support (Jam))
+Lift = (Confidence (Jam -> Bread)) / (Support (Jam))
 
       = 50 / 10 = 5
 ```
