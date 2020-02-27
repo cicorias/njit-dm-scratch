@@ -1,3 +1,13 @@
+## Updates February 27
+
+Adding rows to a dataframe
+
+https://stackoverflow.com/questions/10715965/add-one-row-to-pandas-dataframe/17496530#17496530
+
+https://stackoverflow.com/questions/10715965/add-one-row-to-pandas-dataframe
+
+
+
 
 
 https://www.geeksforgeeks.org/python-check-if-a-list-is-contained-in-another-list/
