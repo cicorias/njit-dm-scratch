@@ -26,7 +26,14 @@ def generate_associations(data: pd.DataFrame, threshold = 0.10):
         
         ###rv = [ y for y in all_other ]
         ###rv = [ (item, support, output.iloc[y]['itemsets'], output.iloc[y]['itemsets']['support']) for y in all_other ]
-        temp = [ (item, support, data.iloc[y]['itemsets'], data.iloc[y]['support']) for y in all_other ]
+        temp = [ (item, support, data.iloc[y]['itemsets'], data.iloc[y]['support']) 
+                for y in all_other 
+                if not set(item).issubset(data.iloc[y]['itemsets']) ]
+
+
+        #todo: need another column that is the "combination" of the concatenation of the two tuples - antecedent and consequent (P(A|B))
+        
+
         #print("type: {0}".format(type(temp)))
         rv.extend(temp)
         

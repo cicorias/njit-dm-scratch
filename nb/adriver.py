@@ -28,5 +28,13 @@ print(output)
 
 nnn = generate_associations(output)
 
+old_rows = pd.get_option("display.max_rows")
+pd.set_option("display.max_rows", 200)
 
-print(nnn)
+
+df = pd.DataFrame(nnn)
+print(df)
+
+df.to_csv('./out/out.csv')
+
+pd.set_option("display.max_rows", old_rows)
