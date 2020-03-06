@@ -3,7 +3,7 @@ import logging
 from apriori import Apriori, CollapsedCsvFileReader
 from assoc import (calculate_confidence, generate_associations,
                    get_support_for_key, generate_combo_itemsets, 
-                   create_associations,  myRecord)
+                   create_associations,  assocation_record)
 
 logging.basicConfig()
 logger = logging.getLogger('apriori')
@@ -24,3 +24,5 @@ pc = create_associations(output)
 f = calculate_confidence(pc, confidence_level = 0.0)
 
 print(f)
+
+print(len(f))

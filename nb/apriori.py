@@ -1,6 +1,6 @@
 from typing import List, Tuple
-from itertools import combinations, product, permutations
-from abc import ABC, abstractmethod, abstractstaticmethod, abstractclassmethod
+from itertools import combinations
+from abc import ABC, abstractmethod
 import pandas as pd
 import logging
 
@@ -44,7 +44,7 @@ class Apriori(object):
         self._transactions  = value
         
         
-    def generate_levels(self, support_level=0.20, drop_below_support=True) -> pd.DataFrame:
+    def generate_levels(self, support_level: float = 0.20, drop_below_support: bool = True) -> pd.DataFrame:
         k = 1
         full_set = list() # this contains a dataframe for each level.
         while True:
