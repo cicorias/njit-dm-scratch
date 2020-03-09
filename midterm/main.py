@@ -17,16 +17,17 @@ class Program:
         self.data = []
 
     def parse_arguments(self):
-        parser = argparse.ArgumentParser(description='A tutorial of argparse!')
+        parser = argparse.ArgumentParser(description='implementation of the Apriori Algorithm',
+                                         formatter_class=argparse.RawTextHelpFormatter)
         parser.add_argument('-i', '--input', dest='FILE', required=True,
-                            help='input file with two matrices', metavar='FILE',
+                            help='input transaction file collapsed CSV format', metavar='FILE',
                             type=lambda x: self.is_valid_file(parser, x))
         parser.add_argument('-c', '--confidence', dest='confidence_level', required=False,
                             default=0.80,
-                            help='confidence level for association generation')
+                            help='confidence level for association generation see https://en.wikipedia.org/wiki/Association_rule_learning#Confidence')
         parser.add_argument('-s', '--support', dest='support_level', required=False,
                             default=0.20,
-                            help='support level for support generation')
+                            help='support level for support generation see https://en.wikipedia.org/wiki/Association_rule_learning#Support')
         parser.add_argument('-n', '--no-drop', dest='drop_below_support_level', required=False,
                             default=True, action='store_false',
                             help='DO NOT drop transactions below support level')

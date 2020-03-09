@@ -1,13 +1,29 @@
 [tool.poetry]
 name = "py-apriori"
 version = "0.1.0"
-description = ""
+description = "Python implementation of Apriori Algorithm"
 authors = ["Shawn Cicoria <github@cicoria.com>"]
+# New attributes
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/cicorias/njit-dm-scratch/tree/master/midterm"
+repository = "https://github.com/cicorias/njit-dm-scratch/tree/master/midterm"
+keywords = ["apriori", "data mining", "python"]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Data Mining"
+]
+include = [
+    "LICENSE",
+    "main.py",
+    "data/data.csv"
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
 pandas = "^1.0.1"
-rope = "^0.16.0"
+
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
@@ -15,6 +31,7 @@ pylint = "^2.4.4"
 autopep8 = "^1.5"
 flake8 = "^3.7.9"
 pycodestyle = "^2.5.0"
+rope = "^0.16.0"
 
 [build-system]
 requires = ["poetry>=0.12"]
