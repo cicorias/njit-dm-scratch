@@ -50,7 +50,7 @@ class Program:
         return self.args.FILE
 
     def print(self, content):
-        print(content, file=self.args.output)   
+        print(content, file=self.args.output)
 
 
 def main():
