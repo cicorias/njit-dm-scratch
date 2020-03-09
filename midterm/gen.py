@@ -13,7 +13,7 @@ def read(file_path) -> list:
 
 
 def get_random_count():
-    return random.randint(2, 8)
+    return random.randint(2, 5)
 
 
 def generate_itemset(input_file):
@@ -51,3 +51,4 @@ generate_db_file(input_file, './data/db_file1.csv')
 generate_db_file(input_file, './data/db_file2.csv')
 generate_db_file(input_file, './data/db_file3.csv')
 generate_db_file(input_file, './data/db_file4.csv')
+generate_db_file(input_file, './data/db_file5.csv')

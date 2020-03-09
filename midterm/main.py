@@ -24,9 +24,11 @@ class Program:
                             type=lambda x: self.is_valid_file(parser, x))
         parser.add_argument('-c', '--confidence', dest='confidence_level', required=False,
                             default=0.80,
+                            type=float,
                             help='confidence level for association generation see https://en.wikipedia.org/wiki/Association_rule_learning#Confidence')
         parser.add_argument('-s', '--support', dest='support_level', required=False,
                             default=0.20,
+                            type=float,
                             help='support level for support generation see https://en.wikipedia.org/wiki/Association_rule_learning#Support')
         parser.add_argument('-n', '--no-drop', dest='drop_below_support_level', required=False,
                             default=True, action='store_false',
