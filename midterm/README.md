@@ -1,4 +1,33 @@
-﻿# Py_Apriori Module
+﻿---
+title: "Shawn Cicoria - CS 634 Data Mining Midterm Project"
+author: "Shawn Cicoria"
+date: "March 12 2020"
+output:
+  html_document:
+    df_print: paged
+email: sc2443@njit.edu
+---
+<!-- Start Document Outline -->
+
+* [Py_Apriori Module](#py_apriori-module)
+	* [Requirements](#requirements)
+	* [Setup](#setup)
+		* [Setup your Python environment](#setup-your-python-environment)
+			* [Create virtual env and activate](#create-virtual-env-and-activate)
+		* [Unpack the tar file](#unpack-the-tar-file)
+		* [Run setup](#run-setup)
+	* [Running](#running)
+		* [Options](#options)
+		* [Sample run](#sample-run)
+			* [Sample Run Output](#sample-run-output)
+		* [Sample Run Data File](#sample-run-data-file)
+	* [Data Format](#data-format)
+* [References:](#references)
+
+<!-- End Document Outline -->
+
+<div style='page-break-after: always'></div>
+# Py_Apriori Module
 This is a basic implementation in Python of the Apriori Association Algorithm
 
 ## Requirements
@@ -155,6 +184,7 @@ The data file is in a simple format that I call **Collapsed CSV** as each line h
 
 
 
+<div style='page-break-after: always'></div>
 # References:
 This is a basic implementation of the Apriori Algorithm[1]
 
