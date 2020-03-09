@@ -17,7 +17,13 @@ classifiers = [
 include = [
     "LICENSE",
     "main.py",
-    "data/data.csv"
+    "gen.py",
+    "data/data.csv",
+    "data/db_file1.csv",
+    "data/db_file2.csv",
+    "data/db_file3.csv",
+    "data/db_file4.csv",
+    "data/db_file5.csv"
 ]
 
 [tool.poetry.dependencies]
