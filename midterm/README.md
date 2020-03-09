@@ -1,4 +1,4 @@
-# Py_Apriori Module
+﻿# Py_Apriori Module
 This is a basic implementation in Python of the Apriori Association Algorithm
 
 ## Requirements
@@ -7,15 +7,15 @@ This is a basic implementation in Python of the Apriori Association Algorithm
 * Python 3.6
 
 ## Setup
-First download the TAR file to a location that you will use. I recomend a scratch directory that you can remove all when done.
+First download the `TAR` file to a location that you will use. I recommend a scratch directory that you can remove all when done.
 
 In the text below, my extracted directory is: `/c/temp/py-apriori-0.1.0`
 
 ### Setup your Python environment
-General recomendation is to use a Python Virtual Environment. With Pythhon `3.5+` execute the following:
+General recommendation is to use a Python Virtual Environment. With Python `3.5+` execute the following:
 
 
-#### Create virtual env and activate
+#### Create virtual `env` and activate
 ```
 # from /c/temp/
 python -m venv env  # this creates directory env
@@ -23,9 +23,9 @@ python -m venv env  # this creates directory env
 
 ```
 
-### Unpack the tar file
+### Unpack the `tar` file
 
-From the directory where the virtual env and the tar file is:
+From the directory where the virtual `env` and the `tar` file is:
 
 ```
 tar -xvf py-apriori-0.1.0.tar.gz
@@ -35,7 +35,7 @@ cd py-apriori-0.1.0.tar.gz
 
 ### Run setup
 
-Once you've extracted the tar file, and changed to the tar output directory, now run `setup.py install` under python to add all dependencies
+Once you've extracted the `tar` file, and changed to the `tar` output directory, now run `setup.py install` under python to add all dependencies
 
 ```
 # from /c/temp/py-apriori-0.1.0
@@ -73,6 +73,16 @@ optional arguments:
   -o FILE, --output FILE
                         output file
 ```
+
+### Options
+
+| option                   | description                                                                                             | required | default                                                                                                                           |
+|--------------------------|---------------------------------------------------------------------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------|
+| -i or --input            | specifies the input file that MUST be in CollapsedCSV format - see file format section below.           | YES      | na                                                                                                                                |
+| -c or --confidence_level | sets the filtering criteria for associations that fall below the specified level.                       | NO       | 0.80                                                                                                                              |
+| -s or --support_level    | sets the filtering criteria for support levels in the transactions that fall below the specified level. | NO       | 0.20                                                                                                                              |
+| -n or --no-drop          | indicate IF you want to included items that fall below the support level in support generation          | NO       | - if this flag is present then ALL transactions at ALL support levels filter through to the confidence and association generation |
+
 
 ### Sample run
 
@@ -141,7 +151,7 @@ I1, I2, I3
 ```
 ## Data Format
 
-The data file is in a simple format that I call **Collapses CSV** as each line has multiple transaction items separated by a comma. So, it's not exactly a CSV file, but close.
+The data file is in a simple format that I call **Collapsed CSV** as each line has multiple transaction items separated by a comma. So, it's not exactly a CSV file, but close.
 
 
 
