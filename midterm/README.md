@@ -1,4 +1,10 @@
 # Py_Apriori Module
+This is a basic implementation in Python of the Apriori Association Algorithm
+
+## Requirements
+
+* Linux / Ubuntu 16+
+* Python 3.6
 
 ## Setup
 First download the TAR file to a location that you will use. I recomend a scratch directory that you can remove all when done.
