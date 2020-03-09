@@ -1,4 +1,5 @@
 import os
+import sys
 import argparse
 import logging
 
@@ -28,7 +29,13 @@ class Program:
                             help='support level for support generation')
         parser.add_argument('-n', '--no-drop', dest='drop_below_support_level', required=False,
                             default=True, action='store_false',
-                            help='DO NOT drop transactions below support level for support generation')
+                            help='DO NOT drop transactions below support level')
+
+        parser.add_argument("-o", "--output", dest="output",
+                            type=argparse.FileType('w'),
+                            metavar="FILE",
+                            default=sys.stdout,
+                            help="output file")
 
         self.args = parser.parse_args()
 
@@ -41,6 +48,9 @@ class Program:
     @property
     def FILE(self):
         return self.args.FILE
+
+    def print(self, content):
+        print(content, file=self.args.output)   
 
 
 def main():
@@ -57,25 +67,28 @@ def main():
     confidence = prog.args.confidence_level
     drop_trans = prog.args.drop_below_support_level
 
-    print("for this run we are using the following\n")
-    print("\tSupport: {}".format(support))
-    print("\tConfidence: {}".format(confidence))
-    print("\tDrop Trans: {}".format(drop_trans))
+    prog.print("For this run we are using the following\n")
+    prog.print("\tSupport: {}".format(support))
+    prog.print("\tConfidence: {}".format(confidence))
+    prog.print("\tDrop Trans: {}".format(drop_trans))
+    prog.print("\tFile:       {}".format(prog.FILE))
 
     # just generate the levels and filter as needed
     support_level_output = apriori_instance.generate_levels(support_level=support, drop_below_support=drop_trans)
-    print(support_level_output)
+    prog.print("\n\n=== SUPPORT LEVELS ===\n")
+    prog.print(support_level_output)
 
     # create the associations
     # TODO: mabye encapsulate this step.
-    pc = create_associations(support_level_output)
+    associated_transactions = create_associations(support_level_output)
 
     # generate the confidence levels.
-    f = calculate_confidence(pc, confidence_level=confidence)
+    confidence_report = calculate_confidence(associated_transactions, confidence_level=confidence)
 
-    print(f)
+    prog.print("\n\n=== ASSOCIATION AND CONFIDENCE LEVELS ===\n")
+    prog.print(confidence_report)
 
-    print(len(f))
+    # prog.print(len(confidence_report))
 
 
 if __name__ == "__main__":
