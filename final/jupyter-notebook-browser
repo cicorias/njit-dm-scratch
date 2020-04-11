@@ -1,0 +1,5 @@
+#!/bin/bash
+file=$(echo "$1" | sed 's/file:\/\///')
+url=$(grep -oP 'href="\K([^"]*localhost[^"]+)' "$file")
+wslview "$url"
+
