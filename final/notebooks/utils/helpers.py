@@ -67,13 +67,18 @@ def get_features_and_labels(df_all, binary=False):
     else:
         labels_all = df_all.iloc[:, 11]
     return features_all, labels_all
+    
 
 def get_labels(df_all):
     labels_all = df_all.iloc[:, 11]
     return labels_all
 
-def get_df_no_color(df_all):
+def get_df_no_color(df_all, binary=False):
     df = df_all.iloc[:, 0:12]
+    
+    if binary:
+        df.loc[:, 'quality'] = pd.Series(np.where(df.loc[:, 'quality'].to_numpy() > 5, 1, 0))
+    
     return df
 
 
