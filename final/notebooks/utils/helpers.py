@@ -93,6 +93,20 @@ def bins_labels(bins, shift = 0.25, **kwargs):
     plt.xlim(bins[0], bins[-1])
 
 
+def convert_to_quantiles(df, labels = ['d-1stQ', 'd-2ndQ', 'd-3rdQ', 'd-4thQ']):
+    df_out = pd.DataFrame()
+    df_bins = pd.DataFrame()
+
+    for k, s in df.iteritems():
+        df_out[k], df_bins[k] = pd.qcut(s, 4, labels = labels, retbins = True)
+        
+    
+
+    df_bins['sum_stats'] = ['min', 'd-1stQ', 'd-2ndQ', 'd-3rdQ', 'max']
+    return df_out, df_bins
+
+    
+
 
 
 ### display stuff
