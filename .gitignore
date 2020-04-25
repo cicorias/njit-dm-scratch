@@ -135,4 +135,5 @@ dmypy.json
 out/
 
 .data/
+.DS_Store
 
