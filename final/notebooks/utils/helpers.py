@@ -107,8 +107,6 @@ def convert_to_quantiles(df, labels = ['d-1stQ', 'd-2ndQ', 'd-3rdQ', 'd-4thQ']):
 
     
 
-
-
 ### display stuff
 
 def emit_md(markdown_text):
@@ -117,3 +115,29 @@ def emit_md(markdown_text):
 
 def emit_latex(latext_text):
     display(Latex(latext_text))
+
+#this is for development only and not relevant
+def in_script():
+    try:
+        shell = get_ipython().__class__.__name__
+        if shell == 'ZMQInteractiveShell':
+            print('running in a Jupyter notebook')
+            return False
+        elif shell == 'TerminalInteractiveShell':
+            print('running in a IPython terminal')
+            return True
+        else:
+            print('unknow shell: {}'.format(shell))
+            print('but doesn\'t appear to be a python script')
+
+    except NameError:
+        return True
+    
+def in_notebook():
+    return not in_script()
+    
+def plot_to_file(plt, filename):
+    from matplotlib import pyplot as plt
+    plt.savefig('{}.png'.format(filename), bbox_inches='tight')
+    plt.savefig('{}.pdf'.format(filename), bbox_inches='tight')
+
