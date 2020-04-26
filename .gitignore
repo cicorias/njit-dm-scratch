@@ -137,3 +137,7 @@ out/
 .data/
 .DS_Store
 
+
+**/chefboost/*
+
+#final/chefboost/commons/__init__.py
