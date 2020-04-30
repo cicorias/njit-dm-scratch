@@ -1,6 +1,7 @@
 # TODO:
 
 - DT work
+  - move roc auc to a function and update both notebooks
   - complete the k fold analysis or the ROC/AUC curve
     - https://stackoverflow.com/questions/35097003/cross-validation-decision-trees-in-sklearn
   - explain why # of levels chosen
