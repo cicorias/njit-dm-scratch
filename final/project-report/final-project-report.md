@@ -1,17 +1,28 @@
-# TODO:
-
-- DT work
-  - save all files as py
-    - add snipped to check if in script or notebook
-    - if in script print to files.
-  
-
 # 1 - Introduction
 For this project both Support Vector Machines and Decision Tree are used to evaluate an existing data set - well known as the "Wine Dataset" for the primary goal:
 
 > to be able to predict a "good wine" based upon its physical and chemical properties.
 
 This project report is accompanied by the following:
+
+- Project file report - PDF form (this file)
+- Within the `notebooks` folder all the accompanying Jupyter IPython Notebooks which correspond to each section of the report, namely:
+  -  3.1 - Data EDA.ipynb
+  -  3.2 DT Model Generation.ipynb
+  -  3.2 SVM Model Generation.ipynb
+- Corresponding Python scripts for each of the above notebooks
+  -  3.1 - Data EDA.py
+  -  3.2 DT Model Generation.py
+  -  3.2 SVM Model Generation.py
+- Supporting python functions used within Notebooks and above scripts
+  - utils\helpers.py
+- Data files
+  - winequality-[red|white].csv
+- Root folder
+  - pyproject.toml - this is the dependency file used by Poetry to build the virtual environment. You can utilized this or use `pip3` under Python 3.7+ to install dependencies and run the scripts directly or load the Jupyter notebooks.
+  - poetry.lock - this is the lock file that sets the full dependency of all python libraries. This is used by Poetry; if utilizing `pip3` this is not used.
+
+  
 
 
 
