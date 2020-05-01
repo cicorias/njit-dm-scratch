@@ -23,6 +23,35 @@ This project report is accompanied by the following:
   - poetry.lock - this is the lock file that sets the full dependency of all python libraries. This is used by Poetry; if utilizing `pip3` this is not used.
 
   
+## 1.1 Running the code.
+
+A video recording of the code running from the command line Python interpreter is located here: [https://scicorianjit.blob.core.windows.net/njit/shawn_cicoria_finaltermproj.mp4](https://scicorianjit.blob.core.windows.net/njit/shawn_cicoria_finaltermproj.mp4)
+
+
+Once you have Python 3.7+ along with all the dependencies installed, you can run each of the scripts from the command line:
+
+```
+cd notebooks/
+python3 "3.1 - Data EDA.py"
+python3 "3.2 DT Model Generation.py"
+python3 "3.2 SVM Model Generation.py"
+
+```
+
+The scripts can also be run from within Visual Studio Code which provides a really nice environment for viewing and running. Ensure that you install both Visual Studio Code along with the Python Extension - and of course an installation of Python 3.7+
+
+- Visual Studio Code - https://code.visualstudio.com/
+- Python Extension https://marketplace.visualstudio.com/items?itemName=ms-python.python
+- Python - https://www.python.org/
+
+These notebooks can be uploaded to [Google Colab](https://colab.research.google.com/) and run from there as well - just be sure to upload the folder `./utils` to the root of the notebook session. The beginning part of each notebook downloads the needed data files. 
+
+
+
+## 1.2 All contents of submission
+
+All contents as a ZIP file are downloadable at: [shawn_cicoria_finaltermproj.zip](https://scicorianjit.blob.core.windows.net/njit/shawn_cicoria_finaltermproj.zip) 
+
 
 
 
