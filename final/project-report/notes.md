@@ -29,3 +29,16 @@ https://scikit-learn.org/stable/auto_examples/svm/plot_svm_nonlinear.html#sphx-g
 
 Try different kerne's
 https://scikit-learn.org/stable/auto_examples/svm/plot_iris_svc.html#sphx-glr-auto-examples-svm-plot-iris-svc-py
+
+
+
+
+https://www.kaggle.com/rajyellow46/decision-tree-analysis-of-wine-quality-data
+
+meh: https://rstudio-pubs-static.s3.amazonaws.com/227997_869ca5f2dc144f7b85cdbc3f45a47bb6.html
+
+https://airoot.github.io/Predictive-Wine-Quality-System/
+
+https://medium.com/themlblog/wine-quality-prediction-using-machine-learning-59c88a826789
+
+https://www.slideshare.net/MohammedAlHamadi1/predicting-wine-quality-using-different-implementations-of-decision-tree-algorithm-in-r

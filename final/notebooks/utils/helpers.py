@@ -141,3 +141,40 @@ def plot_to_file(plt, filename):
     plt.savefig('{}.png'.format(filename), bbox_inches='tight')
     plt.savefig('{}.pdf'.format(filename), bbox_inches='tight')
 
+
+
+def show_auc(y_train, y_pred):
+    from sklearn.metrics import roc_curve, auc
+
+    fpr = dict()
+    tpr = dict()
+    roc_auc = dict()
+
+    # we only have 0 or 1 as our classes (its binary)
+    for i in range(0,2):
+        fpr[i], tpr[i], _ = roc_curve(y_train, y_pred)
+        roc_auc[i] = auc(fpr[i], tpr[i])
+
+    print('Auc:[0] = {:.5} and Auc:[1] = {:.5} - which MUST be the same given we have a binary classification'.format(roc_auc[0], roc_auc[1]))
+
+    return roc_auc, tpr, fpr
+
+
+
+def plot_roc(roc_auc, tpr, fpr):
+    ic = 0
+
+    plt.figure()
+    lw = 2
+    plt.plot(fpr[ic], tpr[ic], color='darkorange',
+             lw=lw, label='ROC curve (area = %0.2f)' % roc_auc[ic])
+
+
+    plt.plot([0, 1], [0, 1], color='navy', lw=lw, linestyle='--')
+    plt.xlim([-0.1, 1.1])
+    plt.ylim([0.0, 1.05])
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('Receiver operating characteristic Wine Quality')
+    plt.legend(loc="lower right")
+    plt.show()
