@@ -1,6 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
+# To add a new cell, type '# %%'
+# To add a new markdown cell, type '# %% [markdown]'
+# %% [markdown]
 # ### 3.3.2 - Decision Tree Training
 # 
 # This section goes through the modeling, train, and results of a DecisionTree from Scikit that uses the CART algorithm.
@@ -17,9 +17,7 @@
 # Decision Trees are not sensitive to feature scaling differences. In addition, Decision Trees are non-linear classifiers and have no sensitivity to the linear separability of the data. For the scaling and standardization needs you may decide to scale or normalize the data for visualization needs but the underlying alrorithm relies on value in the Entropy calculations that results in values between `0 and 1`, along with the information gain based upon conditional probabilities that is also positive.
 # 
 
-# In[69]:
-
-
+# %%
 
 ## lets load the data
 from utils.helpers import *
@@ -32,7 +30,7 @@ X_train, y_train = get_features_and_labels(df_all, binary = True)
 print("X_train.shape: {}".format(X_train.shape))
 print("y_train.shape: {}".format(y_train.shape))
 
-
+# %% [markdown]
 # #### 3.3.2.1 - Model Hyperparameter Tuning
 # 
 # As was done in the prior section with SVM, a grid search that will run through the model training. Within Scikit the GridSearchCV can provide a matrix search across all combinations of parameters along with k-fold cross validation of the underlying data. This helps with the manual effort of just run, change parameters, run, that experimentation provides.
@@ -63,9 +61,7 @@ print("y_train.shape: {}".format(y_train.shape))
 # 
 # 
 
-# In[70]:
-
-
+# %%
 
 
 import numpy as np
@@ -76,7 +72,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn import tree
 
 parameters = {
-    'max_depth' : range(1,7),
+    'max_depth' : [2,3,4,5], #range(1,5),
     'criterion' : ['entropy', 'gini'],
     'splitter' : ['best', 'random'],
     'max_features' : ['auto', 'sqrt', 'log2']
@@ -98,21 +94,19 @@ grid.fit(X = X_train , y = y_train)
 
 print('done training')
 
-
+# %% [markdown]
 # 
 # #### 3.3.2.2 - Grid Result
 # 
 # Now lets take a look at the `best score`, `best parameters` as these will be what is used in the direct scoring run further down.
 # 
 
-# In[71]:
-
-
+# %%
 
 print("score = %3.4f" %(grid.best_score_))
 print(grid.best_params_)
 
-
+# %% [markdown]
 # 
 # We can see that the grid search best score is above, along with the best parameters that achieved that score.
 # 
@@ -123,15 +117,13 @@ print(grid.best_params_)
 # Lets emit a few values that come back from the grid search.
 # 
 
-# In[72]:
-
-
+# %%
 
 print('Best estimator score: {:.4f}'.format(grid.best_estimator_.score(X_train, y_train)))
 print('Grid Score: {:.4f}'.format(grid.score(X_train, y_train)))
 print('Grid Best Score: {:.4f}'.format(grid.best_score_))
 
-
+# %% [markdown]
 # 
 # #### 3.3.2.4 - Explanation of differences
 # 
@@ -146,8 +138,8 @@ print('Grid Best Score: {:.4f}'.format(grid.best_score_))
 # 
 # At this point we take a track that indicates we have optimized parameters:
 # ```
-# score = 0.7371
-# {'criterion': 'gini', 'max_depth': 5, 'max_features': 'log2', 'splitter': 'best'}
+# score = 0.7269
+# {'criterion': 'gini', 'max_depth': 5, 'max_features': 'sqrt', 'splitter': 'best'}
 # ```
 # 
 # Now apply a different function from Scikit that runs the same cross validation, but using one set of parameters.
@@ -159,16 +151,12 @@ print('Grid Best Score: {:.4f}'.format(grid.best_score_))
 # 
 # 
 
-# In[73]:
-
-
+# %%
 best_parms = grid.best_params_
 best_parms
 
 
-# In[74]:
-
-
+# %%
 
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import cross_val_predict
@@ -195,7 +183,7 @@ scores = cross_val_score(
 print("Accuracy: %0.4f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
 scores
 
-
+# %% [markdown]
 # 
 # 
 # ##### 3.3.2.6 - ROC and AUC
@@ -211,14 +199,19 @@ scores
 # 
 # #### 3.3.2.7 - Prediction and ROC calculations
 
-# In[75]:
-
-
+# %%
 
 skf = StratifiedKFold(n_splits = 10,
                       random_state = 42, 
                       shuffle = True)
 
+clf = tree.DecisionTreeClassifier(
+    max_depth = best_parms['max_depth'],
+    max_features = best_parms['max_features'],
+    splitter = best_parms['splitter'],
+    criterion = best_parms['criterion'])
+
+    
 y_pred = cross_val_predict(
     clf,
     X_train,
@@ -233,14 +226,12 @@ y_pred = y_pred[:, 1]
 r_auc, tp, fp = show_auc(y_train, y_pred )
 
 
-# In[76]:
-
-
+# %%
 #now plot ROC.
 
 plot_roc(r_auc, tp, fp)
 
-
+# %% [markdown]
 # 
 # 
 # #### 3.3.2.9 - Tree Visual
@@ -249,9 +240,7 @@ plot_roc(r_auc, tp, fp)
 # 
 # 
 
-# In[77]:
-
-
+# %%
 
 figsize = 18, 18
 plt.figure(figsize = figsize)
@@ -264,7 +253,7 @@ tree.plot_tree(
     feature_names=feature_names)
 plt.show()
 
-
+# %% [markdown]
 # 
 # 
 # ##### 3.3.2.9.1 - Refit 
@@ -276,16 +265,14 @@ plt.show()
 # 
 # 
 
-# In[78]:
-
-
+# %%
 
 
 clf = tree.DecisionTreeClassifier(
     max_depth=5,
     criterion='gini',
     splitter='best',
-    max_features='log2')
+    max_features=5)
 
 
 clf = clf.fit(X = X_train, y = y_train)
@@ -293,13 +280,11 @@ print('done training')
 
 
 
-# In[79]:
-
-
+# %%
 ## print out the score, against the training data ..
 clf.score(X_train, y_train)
 
-
+# %% [markdown]
 # 
 # ##### 3.3.2.9.2 - Refit result
 # 
@@ -307,9 +292,7 @@ clf.score(X_train, y_train)
 # 
 # 
 
-# In[80]:
-
-
+# %%
 
 figsize = 18, 18
 plt.figure(figsize = figsize)
@@ -321,4 +304,8 @@ tree.plot_tree(
     feature_names=feature_names)
 
 plt.show()
+
+
+# %%
+
 
